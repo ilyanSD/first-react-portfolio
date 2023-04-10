@@ -2,11 +2,18 @@ import LogoTitle from '../../assets/images/logo-s.png'
 import './index.scss'
 import { useState } from 'react'
 import AnimatedLetters from '../AnimatedLetters'
+import { useNavigate } from 'react-router-dom'
 
 const Home = () => {
   const [letterClass, setLetterClass] = useState('text-animate')
   const nameArray = 'lyusarchuk'.split('')
   const jobArray = 'Software Engineer'.split('')
+
+  const navigate = useNavigate()
+
+  const contactMeHandler = () => {
+    navigate('/contact')
+  }
 
   return (
     <div className='container home-page'>
@@ -31,7 +38,7 @@ const Home = () => {
           <AnimatedLetters letterClass={letterClass} strArray={jobArray} idx={30} />
         </h1>
         <h2>Backend & Web3 Developer | Laravel & NodeJS Expert</h2>
-        <button className='flat-button'>CONTACT ME</button>
+        <button className='flat-button' onClick={contactMeHandler}>CONTACT ME</button>
       </div>
     </div>
   )
