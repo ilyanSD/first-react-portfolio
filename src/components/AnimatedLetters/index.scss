@@ -1,0 +1,17 @@
+.text-animate {
+  display: inline-block;
+  opacity: 0;
+  min-width: 10px;
+  cursor: default;
+}
+
+@for $i from 11 through 46 {
+  ._#{$i} {
+    animation: bounceIn 1.4s forwards;
+    animation-delay: calc(0.1s * #{$i});
+
+    &:hover {
+      color: #ffd700;
+    }
+  }
+}
