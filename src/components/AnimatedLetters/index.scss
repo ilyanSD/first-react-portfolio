@@ -5,13 +5,20 @@
   cursor: default;
 }
 
+.text-animate-hover {
+  min-width: 10px;
+  display: inline-block;
+  animation-fill-mode: forwards;
+
+  &:hover {
+    animation: rubberBand 1s;
+    color: #ffd700;
+  }
+}
+
 @for $i from 11 through 46 {
-  ._#{$i} {
+  .text-animate._#{$i} {
     animation: bounceIn 1.4s forwards;
     animation-delay: calc(0.1s * #{$i});
-
-    &:hover {
-      color: #ffd700;
-    }
   }
 }

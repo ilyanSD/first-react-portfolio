@@ -1,8 +1,9 @@
 import LogoTitle from '../../assets/images/logo-s.png'
 import './index.scss'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import AnimatedLetters from '../AnimatedLetters'
 import { useNavigate } from 'react-router-dom'
+import Logo from './Logo'
 
 const Home = () => {
   const [letterClass, setLetterClass] = useState('text-animate')
@@ -14,6 +15,12 @@ const Home = () => {
   const contactMeHandler = () => {
     navigate('/contact')
   }
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLetterClass('text-animate-hover')
+    }, 6000)
+  }, [])
 
   return (
     <div className='container home-page'>
@@ -40,6 +47,7 @@ const Home = () => {
         <h2>Backend & Web3 Developer | Laravel & NodeJS Expert</h2>
         <button className='flat-button' onClick={contactMeHandler}>CONTACT ME</button>
       </div>
+      <Logo />
     </div>
   )
 }
